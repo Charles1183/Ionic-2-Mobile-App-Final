@@ -1,0 +1,54 @@
+<!--
+  Generated template for the Signup page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-buttons left>
+            <button ion-button icon-only color="white" (click)="home()">
+      <ion-icon name="md-home"></ion-icon>
+    </button>
+        </ion-buttons>
+
+        <ion-title color="White">
+            Signup
+        </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only color="white" (click)="help()">
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  
+<form [formGroup]="signupForm" (ngSubmit)="submit()" novalidate>
+      <ion-row>
+        <ion-item>
+            <ion-label for="email"></ion-label>
+            <ion-input type="email" value="" placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+      </ion-row>
+      <p *ngIf="!email.valid && email.touched"><font color="red">Must use a valid email address</font></p>
+      <p *ngIf="email.hasError('required') && email.touched"><font color="red">Email is required</font></p>
+      <ion-row>
+        <ion-item>
+            <ion-label for="password"></ion-label>
+            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-row>
+      <p *ngIf="!password.valid && password.touched"><font color="red">Password must be at least 6 characters long</font></p>
+      <p *ngIf="password.hasError('required') && password.touched"><font color="red">Password is required</font></p>
+      <br>
+      <ion-row>
+          <button ion-button small full type="submit" color="secondary">Signup</button>
+      </ion-row>
+  </form>
+ 
+</ion-content>

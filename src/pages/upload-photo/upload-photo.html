@@ -1,0 +1,104 @@
+<!-- Upload Photo page, this page holds the photo that the user selected or 
+     took from there device, alows the user to add text or to add a voice commit
+     all data is passed back to this page for the final upload. there is no cancel 
+     button is the user does not want to submit any informaiton they can select the
+     home button. 
+     
+     TODO: 
+            make the project selection dynamic
+-->
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the home function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="home()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+        <!-- Right Nav Bar Button tag, end modifier keeps the button
+             from having the solid background. -->
+        <ion-buttons end>
+            <!-- Right Nav Bar button set up for Ionic icon, when 
+                 clicked the screen displays a help page with discriptions
+                 of the options the user will have. -->
+            <button ion-button icon-only color="white" (click)="help()">
+        <!-- Ionic icon for the help menu -->
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<!-- Padding that seperates the nav bar from the table content -->
+<ion-content padding>
+
+    <!-- Ionic table  -->
+    <ion-list no-lines>
+        <ion-item>
+            <!-- Stores and shows the photo that the user selects -->
+            <img width="400" height="250" src="https://pbs.twimg.com/profile_images/707472551098900480/CQuV5B2x.jpg"><!--{{passedPhoto}}-->
+        </ion-item>
+        <ion-item>
+            <!-- Ionic label, this creates the pop up that shows the 
+                 project the user can select to upload too. Currently 
+                 only shows Nature Net Kids and defaults to this setting -->
+            <ion-label>Project</ion-label>
+            <ion-select [(ngModel)]="project">
+                <!-- selections can be added manualy or dynamicly -->
+                <ion-option value="NNK" selected="true">Nature Net Kids</ion-option>
+                <ion-option value="Other"> Other </ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <!-- Button that allows the user to add voice recordings, takes
+                 the user to the record page, small modifier controls the 
+                 height of the button this can be changed in veriable.scss
+                 full makes the button the width of the table. -->
+            <button ion-button small full color="record" (click)="record()">
+                <!-- Ionic icon for a mic, and the text shows below the icon -->
+                <ion-icon name="md-mic"><br>Add Voice</ion-icon>
+            </button>
+        </ion-item>
+        <!--Changes the addText button change when user adds text -->
+        <div *ngIf="text==''||text==null">
+            <ion-item>
+                <button ion-button small full color="addText" (click)="addText()">
+                <ion-icon name="md-text"><br>Add Text</ion-icon>
+            </button>
+            </ion-item>
+        </div>
+
+        <div *ngIf="text!='' && text!=null">
+            <ion-item>
+                <button ion-button small full color="submit" (click)="addText()">
+                <ion-icon name="md-checkmark"><br>Add Text</ion-icon>
+            </button>
+
+                <p>{{text}}</p>
+
+            </ion-item>
+        </div>
+
+        <ion-item>
+            <!-- Button to submit the information the user provided -->
+            <button ion-button small full color="submit" (click)="postPhoto()">
+                <!-- ionic icon and text -->
+                <ion-icon name="ios-send"><br>Post</ion-icon>
+            </button>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

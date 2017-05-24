@@ -1,0 +1,67 @@
+<!-- Settings Page, this page currently holds login and logout buttons to allow the user 
+     to control the currently login user, currently the user must be login to use the app.
+     the settings page is only accessible from the home page, no other page gives the option
+     to go to the settings page. 
+     
+     TODO:
+        Add user settings for avitar and ways to change or edit user information
+        Add settings for privacy or perental controls to make use of the app safer if needed
+ -->
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the close function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="close()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+
+        <!-- No Right Nav Bar displayed on this page.  -->
+    </ion-navbar>
+
+</ion-header>
+
+<!-- Padding that seperate the Nav Bar from the rest of the page content-->
+<ion-content padding>
+
+    <!-- Ionic table that contains all the page content for formatting-->
+    <ion-list no-lines>
+        <!-- Login button that take the user to the login page -->
+        <ion-item *ngIf!="auth.authState">
+            <!-- Button tag for login button, small modifier controls the size of 
+                 the button, this CSS value is controled globally in the 
+                 variables.scss file. When clicked calls the goToLogin function-->
+            <button ion-button small full color="primary" (click)="goToLogin()">
+                Login
+            </button>
+        </ion-item>
+        <!-- Logout Button, logs the user out. -->
+        <ion-item *ngIf="auth.authState">
+            <!-- Button tag for logout button, When clicked calls the logout function-->
+            <button ion-button small full color="extra" (click)="logout()">
+                Logout
+            </button>
+        </ion-item>
+        <!-- Close settings button, this button closes the settings page taking the user back to the
+             Home Page, the home button is still in the upper left corner. This is intentional to 
+             keep naviagation simple for the users. -->
+        <ion-item>
+            <!-- Button tag for close settings button, When clicked calls the clsoe function-->
+            <button ion-button small full color="danger" (click)="close()"> 
+              Close Settings 
+            </button>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,65 @@
+<!-- Take photo page, this is the page the user is shown if they choose to 
+     add an observation, the user can either take a photo or add a photo from
+     there photo library. -->
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the home function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="home()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+        <!-- Right Nav Bar Button tag, end modifier keeps the button
+             from having the solid background. -->
+        <ion-buttons end>
+            <!-- Right Nav Bar button set up for Ionic icon, when 
+                 clicked the screen displays a help page with discriptions
+                 of the options the user will have. -->
+            <button ion-button icon-only color="white" (click)="help()">
+        <!-- Ionic icon for the help menu -->
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<!-- Padding that seperates the nav bar from the page content. -->
+<ion-content padding>
+
+    <!-- Ionic Table-->
+    <ion-list no-lines>
+
+        <ion-item>
+            <!-- Ionic button for taking a photo with the built in camera 
+                 full modifier makes the button the width of the table 
+                 large controls the height of the button, this can be changed in
+                 variables.scss file. -->
+            <button ion-button full large color="danger" (click)="takePhoto()">
+                <!-- Ionic Icon for the camera and the text is below the icon -->    
+                <ion-icon name="md-camera">Take a Picture</ion-icon>
+            </button>
+        </ion-item>
+
+        <ion-item>
+            <!-- Ionic button for adding a photo from the camera library-->
+            <button ion-button full large color="light" (click)="choosePhoto()">
+                <!-- Ionic icon for a gallery and the text shows under the icon. -->
+                <ion-icon name="md-images">Choose a Picture</ion-icon>
+            </button>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,58 @@
+<!-- Detailed Observation Page, this is the page that is generated
+     when the user selects a photo from the observations list. -->
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the home function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="home()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+        <!-- Right Nav Bar Button tag, end modifier keeps the button
+             from having the solid background. -->
+        <ion-buttons end>
+            <!-- Right Nav Bar button set up for Ionic icon, when 
+                 clicked the screen displays a help page with discriptions
+                 of the options the user will have. -->
+            <button ion-button icon-only color="white" (click)="help()">
+        <!-- Ionic icon for the help menu -->
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<!-- Adds padding from the Nav Bar and the content of the rest of the page. -->
+<ion-content padding>
+
+    <!-- Ionic container that dynamicly displays the information based off what 
+         is passed to this page. -->
+    <ion-list no-lines>
+        <ion-item>
+            <img width="400" height="250" src="{{observation.image_url}}">
+        </ion-item>
+    </ion-list>
+            
+    <!-- Displays the information and text comment of the Photo selected. -->
+    <ion-card color='defaultCard'>
+        <ion-card-header>
+            About This Picture:
+        </ion-card-header>
+        <ion-card-content>
+           {{observation.text}}
+        </ion-card-content>
+    </ion-card>
+
+
+</ion-content>

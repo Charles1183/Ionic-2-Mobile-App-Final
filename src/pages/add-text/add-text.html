@@ -1,0 +1,42 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-buttons left>
+            <button ion-button icon-only color="white" (click)="home()">
+      <ion-icon name="md-home"></ion-icon>
+    </button>
+        </ion-buttons>
+
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only color="white" (click)="help()">
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+        <ion-row>
+            <!-- Form information for the user to input an email address for logging in-->
+            <ion-card color='defaultCard'>
+                <!-- form label -->
+                <ion-label for="text"></ion-label>
+                <!-- form text box that restricts inputs -->
+                <ion-textarea placeholder="Enter your picture description here" rows='15' type="text" [(ngModel)]="userText"></ion-textarea>
+            </ion-card>
+        </ion-row>
+        <!-- errors can go here -->
+        <br>
+        <ion-row>
+            <!-- Button to submit the form information for logging in -->
+            <button ion-button small full (click)="addText()" color="primary">Add Text</button>
+        </ion-row>
+    <br>
+    <button ion-button small full (click)="cancelText()" color="extra">Cancel </button>
+</ion-content>

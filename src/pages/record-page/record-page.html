@@ -1,0 +1,79 @@
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the home function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="home()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+        <!-- Right Nav Bar Button tag, end modifier keeps the button
+             from having the solid background. -->
+        <ion-buttons end>
+            <!-- Right Nav Bar button set up for Ionic icon, when 
+                 clicked the screen displays a help page with discriptions
+                 of the options the user will have. -->
+            <button ion-button icon-only color="white" (click)="help()">
+        <!-- Ionic icon for the help menu -->
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<!-- Padding that seperates the nav bar from the rest of the content -->
+<ion-content padding>
+    <!-- Ionic table the fold the buttons for formatting help -->
+    <ion-list no-lines>
+        <ion-item>
+            <!-- Record button, when pressed the device starts recording -->
+            <button ion-button small full color="record" (click)="recordAudio()">
+                <!-- Ionic icon for a mic formatted for the text to be below the icon -->
+                <ion-icon name="md-mic"><br>Record</ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+            <!-- Stop Record Button when pressed the unit will stop recording, 
+                 TODO: dynamicly show this button after the record button is 
+                 pressed. -->
+            <button ion-button small full color="dark" (click)="stopRecord()">
+                <ion-icon name="md-mic"><br>Stop Recording</ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+            <!-- Play button, 
+                 TODO: dynamicly show once the stop recording button is hit -->
+            <button ion-button small color="light" class="buttonWidth" (click)="playAudio()">
+            Play
+          </button>
+            <!-- Stop button,
+                 TODO: dynamicly show once the Play button is hit. -->
+            <button ion-button small color="danger" class="buttonWidth" (click)="stopAudio()">
+            Stop
+          </button>
+        </ion-item>
+        <ion-item>
+            <!-- Cancel button, when hit the recored informaiton is erased and it take the 
+                 user back to the upload photo page. -->
+            <button ion-button small color="record" class="buttonWidth" (click)="cancel()">
+          	Cancel
+          </button>
+            <!-- Submit button, passes the recored object to the upload page. -->
+            <button ion-button small color="submit" class="buttonWidth" (click)="save()">
+          	Save
+          </button>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

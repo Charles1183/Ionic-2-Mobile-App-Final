@@ -1,0 +1,107 @@
+<!-- Home page, this is the main page that is displayed once the use is login,
+     this page will show the user that is login. give the user access to the 
+     settings page for login and logout. 
+     
+     TODO: 
+            create avitar system to show the user created avitar
+            add points to the user imformation displayed 
+ -->
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the home function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="settings()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-settings"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+        <!-- Right Nav Bar Button tag, end modifier keeps the button
+             from having the solid background. -->
+        <ion-buttons end>
+            <!-- Right Nav Bar button set up for Ionic icon, when 
+                 clicked the screen displays a help page with discriptions
+                 of the options the user will have. -->
+            <button ion-button icon-only color="white" (click)="help()">
+        <!-- Ionic icon for the help menu -->
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <!--Name of logedin person -->
+    <!-- Float the icon left -->
+    <div *ngIf!="auth.authState">
+
+    </div>
+    <!-- Float the icon right-->
+    <div *ngIf="auth.authState">
+
+    </div>
+
+    <!-- Ionic Table that holds the all of the page contents for formating -->
+    <ion-list no-lines>
+        <!-- Ionic Avatar tag that generates the contaners for the user information
+             as well as the play to display the avatar icon, and the points. -->
+        <ion-item>
+            <ion-row>
+                <!-- -->
+                <div *ngIf="auth.authState">
+                    <ion-item>
+                        <!-- Avatar information -->
+                        <ion-avatar item-left>
+                            <!-- Avatar thumbnail displays here-->
+                            <img>
+                        </ion-avatar>
+                        <!-- shows the name of the current user logged in -->
+                        <h1>{{auth.currentUser}}</h1>
+                        <!-- Displayes points the user has earned -->
+                        <p> Points </p>
+                    </ion-item>
+                </div>
+            </ion-row>
+        </ion-item>
+        <!-- button to take the user to the add an observation -->
+        <ion-item>
+            <!-- Ionic button for adding a photo, large modifier adds the CSS that
+                 controls the height of the button, see variables.scss for this 
+                 variable. Full modifier controls the width of the button, this takes
+                 the button to the full width of the table. Color variable pulled 
+                 from the themeing in variables.scss. when clicked it loads the 
+                 take photos page.  -->
+            <button ion-button large full color="danger" (click)="takePhotoPage()">
+                <!-- Ionic button image -->
+                <ion-icon name="md-camera">
+                    <!-- formatting for the text to be below the image-->
+                    <br>Add Picture
+                </ion-icon>
+            </button>
+        </ion-item>
+        <!-- button that takes the user to the observations page. -->
+        <ion-item>
+            <!-- Ionic buttom that takes the user to the observations page 
+                 when clicked. -->
+            <button ion-button large full color="secondary" (click)="seeProjects()">
+                <!-- Ionic buttom image -->
+                <ion-icon name="md-images">
+                    <!-- formatting for the text to be below the image. -->
+                    <br>Look at a Picture
+                </ion-icon>
+            </button>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

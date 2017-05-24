@@ -1,0 +1,54 @@
+<!-- Help container page, This page should hold dynamic contaners that show
+     information based off the page that calls this page. Currently this page 
+     just shows a default page no dynamic infomation shown. -->
+<ion-header>
+
+    <!-- Nave bar set up. Primary color is the main Nature Net Green. -->
+    <ion-navbar color="primary">
+        <!-- Ionic button container the left modifier causes the button to 
+             not have a solid color background. Left Nav Bar Button -->
+        <ion-buttons left>
+            <!-- Left Nav Bar Button tag with ionic premaid button icons, 
+                 when the button is clicked the home function is called 
+                 This sends the user back to the main screen.-->
+            <button ion-button icon-only color="white" (click)="home()">
+                <!-- Ionic home button icon. -->
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!-- Center title text all screens have the same title. -->
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+
+        <!-- No Right Nav Bar displayed on this page.  -->
+    </ion-navbar>
+
+</ion-header>
+
+<!-- Padding the seperates the Nav Bar from the rest of the content-->
+<ion-content padding>
+
+    <!-- Ionic Table tag that holds all the items on the page for formatting. -->
+    <ion-list no-lines>
+        <!-- TODO: Need to add more items that can be changed dynamicly to show
+                 information that is relevant to the page that called for help. -->
+        <ion-item>
+            <!-- Current page just shows filler information to show concept -->
+            <p>
+                Filler information for Help Page.
+            </p>
+        </ion-item>
+        <!-- Ionic button that allows the user to close the help page
+                 this will dismiss the current help page and take them back to the 
+                 calling page. -->
+        <ion-item>
+            <!-- Ionic button just text no ionic icon used. Calls close function to 
+                     leave the current page and go back to the calling page. -->
+            <button ion-button small full color="danger" (click)="close()"> 
+                    Close Help 
+                </button>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-buttons left>
+            <button ion-button icon-only color="white" (click)="home()">
+      <ion-icon name="md-home"></ion-icon>
+    </button>
+
+        </ion-buttons>
+        <ion-title>
+            Nature Net Kids
+        </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only color="white" (click)="help()">
+        <ion-icon name="md-help"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <h1> Observations Page </h1>
+
+    <ion-card color='secondary' *ngFor="let observation of observationsList" (click)='viewSelectedObservation(observation)'>
+        <img src="{{observation.image_url}}" height="200">
+        <ion-card-content>
+            <ion-card-title>
+                <p align='center'>About This Picture</p>
+            </ion-card-title>
+            <p>{{observation.text}}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>
